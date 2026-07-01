@@ -1,0 +1,9 @@
+.venv
+.env
+images
+__pycache__
+DB
+Optimization
+runs
+profiles.json
+fine_tuned_weights.pth
