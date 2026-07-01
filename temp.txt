@@ -1,0 +1,21 @@
+import chromadb
+
+class VectorDB:
+
+    def __init__(self) -> None:
+        self.client = chromadb.Client()
+        self.collection = self.client.create_collection(name = 'IMG_Dataset')
+
+    def insert_embedding(self, documents, metadatas, ids):
+        self.collection.add(
+            documents = documents,
+            metadatas = metadatas,
+            ids = ids
+        )
+
+    def query_image(self, vector_embeddings, n_results):
+        response = self.collection.query(
+            query_embeddings = vector_embeddings,
+            n_results = n_results
+        )
+        return response
